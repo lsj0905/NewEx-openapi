@@ -4,11 +4,11 @@
 
 查询某订单详情
 ```
-https://api.huobi.pro/v1/order/orders?
+https://api.newex.io/v1/order/orders?
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 &SignatureMethod=HmacSHA256
 &SignatureVersion=2
-&Timestamp=2017-05-11T15:19:30
+&Timestamp=1571746680
 &order-id=1234567890
 ```
 
@@ -18,7 +18,7 @@ AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 GET\n
 
 #### 2. 添加小写的访问地址，后面添加换行符 “\n”
-api.huobi.pro\n
+api.newex.io\n
 
 #### 3. 访问方法的路径，后面添加换行符 “\n”
 /v1/order/orders\n
@@ -29,33 +29,33 @@ AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 order-id=1234567890
 SignatureMethod=HmacSHA256
 SignatureVersion=2
-Timestamp=2017-05-11T15%3A19%3A30
+Timestamp=1571746680
 ```
 
  使用 UTF-8 编码，且进行了 URI 编码，十六进制字符必须大写，如 “:” 会被编码为 “%3A” ，空格被编码为 “%20”。
 
- 时间戳（Timestamp）需要以YYYY-MM-DDThh:mm:ss格式添加并且进行 URI 编码。
+ 时间戳（Timestamp）需要以时间戳格式添加。
 
 #### 5. 经过排序之后
 ```
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 SignatureMethod=HmacSHA256
 SignatureVersion=2
-Timestamp=2017-05-11T15%3A19%3A30
+Timestamp=1571746680
 order-id=1234567890
 ```
 
 #### 6. 按照以上顺序，将各参数使用字符 “&” 连接
 ```
-AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&order-id=1234567890
+AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&order-id=1234567890
 ```
 
 #### 7. 组成最终的要进行签名计算的字符串如下
 ```
 GET\n
-api.huobi.pro\n
+api.newex.io\n
 /v1/order/orders\n
-AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&order-id=1234567890
+AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&order-id=1234567890
 ```
 
 #### 8. 用上一步里生成的 “请求字符串” 和你的密钥 (Secret Key) 生成一个数字签名
@@ -69,7 +69,7 @@ AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&Signatur
 #### 9. 将生成的数字签名加入到请求的路径参数里
 最终，发送到服务器的 API 请求应该为
 ```
-https://api.huobi.pro/v1/order/orders?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&order-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
+https://api.newex.io/v1/order/orders?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&order-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
 ```
 把所有必须的认证参数添加到接口调用的路径参数里
 
