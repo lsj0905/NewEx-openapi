@@ -5,7 +5,7 @@ GET /market/history/kline
 ## Parmas
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbol | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | period | string | false | 返回数据的时间粒度 | '1min', '15min'，'60min', "4hour", '1day', '1week', '1month'；默认为'1min' |
 | size | int | false | 返回K线数据条数，默认150 | [1,2000] |
 
@@ -62,7 +62,7 @@ GET /market/detail/merged
 ## Parmas
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbol | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 
 ## Returns
 | 字段名称 | 数据类型 | 描述 |
@@ -107,7 +107,7 @@ GET /market/depth
 ## Parmas
 | Field | type | description | 取值范围 |
 |:-:|:-:|:-:|:-:|
-| symbol | string | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | depth | int | 返回深度的数量，默认20 | 5，10，20 |
 
 ## Returns
@@ -150,7 +150,7 @@ GET /market/history/trade
 ## Parmas
 | 参数 | 数据类型 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|
-| symbol | string | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | size | int | 返回的交易记录数量，默认1 | [1,2000] |
 
 ## Returns
