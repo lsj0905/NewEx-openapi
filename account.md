@@ -1,3 +1,5 @@
+# 访问账户相关的接口需要进行签名认证。
+
 # 账户余额
 ## Path
 GET /account/accounts/{account-id}/balance
