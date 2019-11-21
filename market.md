@@ -110,7 +110,7 @@ GET /market/depth
 
 ## Returns
 | Field | type | description |
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | ts | int | 调整为北京时间的时间戳，单位毫秒 |
 | bids | object | 当前的所有买单 [price, quote volume] |
 | asks | object | 当前的所有卖单 [price, quote volume] |
