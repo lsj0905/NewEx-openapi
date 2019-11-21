@@ -5,7 +5,7 @@ POST order/orders/place
 ## Params
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbol | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | type | string | true | 订单类型 | buy-limit, sell-limit |
 | amount | string | true | 订单交易量 |  |
 | price | string | false | limit order的交易价格 |  |
@@ -22,7 +22,7 @@ POST order/orders/place
 ```
 {
     "error_code": 1,
-    "result": {
+    "data": {
         "data": "59378"
     }
 }
@@ -46,7 +46,7 @@ POST order/orders/{order-id}/submitcancel
 ```
 {
     "error_code": 1,
-    "result": {
+    "data": {
         "data": "59378"
     }
 }
@@ -59,7 +59,7 @@ GET /v1/order/openOrders
 ## Params
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbol | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | side | string | false | 指定只返回某一个方向的订单 | 暂不使用，默认both |
 | from | string | false | 查询起始 ID |  |
 | size | string | false | 查询记录大小，默认100 | 1-500 |
@@ -85,7 +85,7 @@ GET /v1/order/openOrders
 ```
 {
     "error_code": 1,
-    "result": [
+    "data": [
         {
             "id": 5454937,
             "symbol": "ethusdt",
@@ -112,7 +112,7 @@ GET /order/history
 ## Params
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbol | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 | start-time | long | false | 查询起始时间 |  |
 | end-time | long | false | 查询结束时间 |  |
 | size | string | false | 查询记录大小，默认100 | 10-1000 |
@@ -133,7 +133,7 @@ GET /order/history
 | price | true | string | 订单价格 |  |
 | source | true | string | 订单来源 | api |
 | state | true | string | 订单状态 | partial-canceled 部分成交撤销, filled 完全成交, canceled 已撤销 |
-| symbol | true | string | 交易对 | btcusdt, ethbtc, rcneth ... |
+| symbol | true | string | 交易对 | newusdt, btcusdt, newbtc ... |
 | stop-price | false | string | 止盈止损订单触发价格 |  |
 | operator | false | string | 止盈止损订单触发价运算符 | gte,lte |
 | type | true | string | 订单类型 | buy-limit：限价买, sell-limit：限价卖 |
@@ -142,7 +142,7 @@ GET /order/history
 ```
 {
     "error_code": 1,
-    "result": [
+    "data": [
         {
             "id": 31215214553,
             "symbol": "btcusdt",
@@ -197,7 +197,7 @@ GET /order/orders/{order-id}
 ```
 {
     "error_code": 1,
-    "result": {
+    "data": {
         "id": 59378,
         "symbol": "ethusdt",
         "account-id": 100009,
@@ -246,7 +246,7 @@ GET /order/orders/{order-id}/matchresults
 ```
 {
     "error_code": 1,
-    "result": [
+    "data": [
         {
             "id": 29553,
             "order-id": 59378,
@@ -260,8 +260,6 @@ GET /order/orders/{order-id}/matchresults
             "filled-fees": "0.0182310000",
             "created-at": 1494901400435,
             "role": "maker",
-            "filled-points": "0.0",
-            "fee-deduct-currency": ""
         }
         ...
     ]
