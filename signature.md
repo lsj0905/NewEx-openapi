@@ -32,7 +32,7 @@ Timestamp=1571746680
 
  使用 UTF-8 编码，且进行了 URI 编码，十六进制字符必须大写，如 “:” 会被编码为 “%3A” ，空格被编码为 “%20”。
 
- 时间戳（Timestamp）需要以时间戳格式添加。
+ 时间戳（Timestamp）需要以时间戳格式添加，单位为秒。
 
 #### 5. 经过排序之后
 ```
@@ -64,10 +64,11 @@ AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&Timestam
 2.将此哈希值用base-64编码，得到的值作为此次接口调用的数字签名。
 
 #### 9. 将生成的数字签名加入到请求的路径参数里
-最终，发送到服务器的 API 请求应该为
+数字签名参数名为“Signature”，当请求方法为GET时，把数字签名在URL编码后加入到路径参数里，请求方法为POST时，把数字签名加入请求参数的json对象里。
+
+最终，发送到服务器的 API 请求应该为（以GET为例）：
+
 ```
 https://api.newex.io/openapi/v1/order/orders?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&order-id=1234567890&SignatureMethod=HmacSHA256&Timestamp=1571746680&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
 ```
-把所有必须的认证参数添加到接口调用的路径参数里
 
-把数字签名在URL编码后加入到路径参数里，参数名为“Signature”。
