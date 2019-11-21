@@ -1,3 +1,5 @@
+访问交易相关的接口需要进行签名认证
+
 # 下单
 ## Path
 POST order/orders/place
