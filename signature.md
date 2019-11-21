@@ -4,10 +4,9 @@
 
 查询某订单详情
 ```
-https://api.newex.io/v1/order/orders?
+https://api.newex.io/openapi/v1/order/orders?
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 &SignatureMethod=HmacSHA256
-&SignatureVersion=2
 &Timestamp=1571746680
 &order-id=1234567890
 ```
@@ -21,14 +20,13 @@ GET\n
 api.newex.io\n
 
 #### 3. 访问方法的路径，后面添加换行符 “\n”
-/v1/order/orders\n
+/openapi/v1/order/orders\n
 
 #### 4. 按照ASCII码的顺序对参数名进行排序。例如，下面是请求参数的原始顺序，进行过编码后
 ```
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 order-id=1234567890
 SignatureMethod=HmacSHA256
-SignatureVersion=2
 Timestamp=1571746680
 ```
 
@@ -40,22 +38,21 @@ Timestamp=1571746680
 ```
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 SignatureMethod=HmacSHA256
-SignatureVersion=2
 Timestamp=1571746680
 order-id=1234567890
 ```
 
 #### 6. 按照以上顺序，将各参数使用字符 “&” 连接
 ```
-AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&order-id=1234567890
+AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&Timestamp=1571746680&order-id=1234567890
 ```
 
 #### 7. 组成最终的要进行签名计算的字符串如下
 ```
 GET\n
 api.newex.io\n
-/v1/order/orders\n
-AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&order-id=1234567890
+/openapi/v1/order/orders\n
+AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&Timestamp=1571746680&order-id=1234567890
 ```
 
 #### 8. 用上一步里生成的 “请求字符串” 和你的密钥 (Secret Key) 生成一个数字签名
@@ -69,7 +66,7 @@ AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&SignatureMethod=HmacSHA256&Signatur
 #### 9. 将生成的数字签名加入到请求的路径参数里
 最终，发送到服务器的 API 请求应该为
 ```
-https://api.newex.io/v1/order/orders?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&order-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=1571746680&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
+https://api.newex.io/openapi/v1/order/orders?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&order-id=1234567890&SignatureMethod=HmacSHA256&Timestamp=1571746680&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
 ```
 把所有必须的认证参数添加到接口调用的路径参数里
 
