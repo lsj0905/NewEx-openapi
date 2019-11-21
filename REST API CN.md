@@ -2,7 +2,7 @@
 
 [验证签名](signature.md) 验证签名
 
-[返回格式](return-format.md) 返回格式
+[请求格式和返回格式](return-format.md) 请求格式和返回格式
 
 # Modules
 
