@@ -7,4 +7,4 @@
 | :- | :-: | :-: |
 | error_code | int | API接口返回状态 |
 | ts | string | 接口返回的调整为北京时间的时间戳，单位毫秒 |
-| result | object | 接口返回数据主体 |
+| data | object | 接口返回数据主体 |
