@@ -20,7 +20,7 @@ GET /account/accounts/{account-id}/balance
 ```
 {
     "error_code": 1,
-    "result": {
+    "data": {
         "id": 100009,
         "type": "spot",
         "state": "working",
@@ -90,7 +90,7 @@ GET /account/deposit/address
 ```
 {
     "error_code": 1,
-    "result": [ 
+    "data": [ 
         {
             "currency": "btc",
             "address": "1PSRjPg53cX7hMRYAXGJnL8mqHtzmQgPUs",
@@ -127,7 +127,7 @@ GET /account/withdraw/quota
 ```
 {
     "error_code": 1,
-    "result": {
+    "data": {
         "currency": "btc",
         "chains": 
             {
@@ -177,7 +177,7 @@ GET /query/deposit-withdraw
 ```
 {
     "error_code": 1,
-    "result": [
+    "data": [
         {
             "id": 1171,
             "type": "deposit",
@@ -203,7 +203,7 @@ GET /fee/fee-rate/get
 ## Params
 | 参数名称 | 数据类型 | 是否必需 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| symbols | string | true | 交易对 | "NEW/USDT", "BTC/USDT", "NEW/BTC" |
+| symbols | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
 
 ## Returns
 | 字段名称 | 数据类型 | 描述 |
@@ -216,19 +216,19 @@ GET /fee/fee-rate/get
 ```
 {
     "error_code": 1,
-    "result": [
+    "data": [
         {
             "symbol": "btcusdt",
             "maker-fee":"0.0001",
             "taker-fee":"0.0002"
         },
         {
-            "symbol": "ethusdt",
+            "symbol": "newusdt",
             "maker-fee":"0.002",
             "taker-fee":"0.002"
         },
         {
-            "symbol": "ltcusdt",
+            "symbol": "newusdt",
             "maker-fee":"0.0015",
             "taker-fee":"0.0018"
         }
