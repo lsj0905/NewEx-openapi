@@ -43,7 +43,8 @@ api.open.newex.io\n
 #### 3. 访问方法的路径，后面添加换行符 “\n”
 /v1/order/orders\n
 
-#### 4. 按照ASCII码的顺序对参数名进行排序。例如，下面是请求参数的原始顺序，进行过编码后
+#### 4. 按照ASCII码的顺序对参数名进行排序（区分大小写）
+例如，下面是请求参数的原始顺序，进行过编码后
 ```
 AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx
 order-id=1234567890
