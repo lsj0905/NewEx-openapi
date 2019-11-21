@@ -1,8 +1,8 @@
 # 通用
 
-[验证签名](signature.md) 验证签名
-
 [请求格式和返回格式](return-format.md) 请求格式和返回格式
+
+[验证签名](signature.md) 验证签名
 
 # Modules
 
