@@ -2,7 +2,7 @@
 
 # 账户余额
 ## Path
-GET /account/accounts/{account-id}/balance
+GET /account/accounts/balance
 
 ## Params
 无
