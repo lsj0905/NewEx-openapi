@@ -166,7 +166,7 @@ GET /order/history
 }
 ```
 
-# 订单详情(含成交明细)
+# 订单详情
 ## Path
 GET /order/orders/{order-id}
 
