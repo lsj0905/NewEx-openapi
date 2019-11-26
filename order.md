@@ -116,8 +116,7 @@ GET /order/history
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
 | symbol | string | true | 交易对 | "newusdt", "btcusdt", "newbtc" |
-| start-time | long | false | 查询起始时间 |  |
-| end-time | long | false | 查询结束时间 |  |
+| from | string | false | 查询起始 ID |  |
 | size | string | false | 查询记录大小，默认100 | 10-1000 |
 | direct | string | false | 排序方向，默认为prev | prev升序 or next降序 |
 
