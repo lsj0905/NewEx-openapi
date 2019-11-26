@@ -71,17 +71,18 @@ GET /v1/order/openOrders
 | 字段名称 | 数据类型 | 描述 |
 |:-:|:-:|:-:|
 | id | integer | 订单id |
+| account-id | long | 用户id |
 | symbol | string | 交易对 |
 | price | string | limit order的交易价格 |
 | created-at | int | 订单创建的调整为北京时间的时间戳，单位毫秒 |
 | type | string | 订单类型 |
+| amount | string | 订单数量 |
 | filled-amount | string | 订单中已成交部分的数量 |
 | filled-cash-amount | string | 订单中已成交部分的总价格 |
 | filled-fees | string | 已交交易手续费总额 |
 | source | string | 现货交易填写“api” |
 | state | string | 订单状态，包括submitted, partial-filled, cancelling, created |
 | stop-price | string | 止盈止损订单触发价格 |
-| operator | string | 止盈止损订单触发价运算符 |
 
 ## Example
 ```
@@ -137,7 +138,6 @@ GET /order/history
 | state | true | string | 订单状态 | partial-canceled 部分成交撤销, filled 完全成交, canceled 已撤销 |
 | symbol | true | string | 交易对 | newusdt, btcusdt, newbtc ... |
 | stop-price | false | string | 止盈止损订单触发价格 |  |
-| operator | false | string | 止盈止损订单触发价运算符 | gte,lte |
 | type | true | string | 订单类型 | buy-limit：限价买, sell-limit：限价卖 |
 
 ## Example
@@ -240,7 +240,7 @@ GET /order/orders/{order-id}/matchresults
 | trade-id | false | integer | Unique trade ID (NEW)唯一成交编号 |  |
 | price |  true | string | 成交价格 |  |
 | source | true | string | 订单来源 | api |
-| symbol | true | string | 交易对 | btcusdt, ethbtc, rcneth ... |
+| symbol | true | string | 交易对 | btcusdt, newusdt, newbtc |
 | type | true | string | 订单类型 | buy-limit：限价买, sell-limit：限价卖 |
 | role | true | string | 成交角色 | maker,taker |
 
