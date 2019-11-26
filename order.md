@@ -192,7 +192,6 @@ GET /order/orders/{order-id}
 | symbol | true | string | 交易对 | btcusdt, ethbtc, rcneth ... |
 | type | true | string | 订单类型 | buy-limit：限价买, sell-limit：限价卖 |
 | stop-price | false | string | 止盈止损订单触发价格 |  |
-| operator | false | string | 止盈止损订单触发价运算符 | gte,lte |
 
 ## Example
 ```
