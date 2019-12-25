@@ -11,7 +11,6 @@
 | 参数名称 | 数据类型 | 描述 |
 | :- | :-: | :-: |
 | status | string | "ok" or "error" |
-| ts | string | 接口返回的调整为北京时间的时间戳，单位毫秒 |
 | error_code | string | 错误码，具体错误码请见列表 |
 | error_message | string | 错误消息 |
 | data | object | 接口返回数据主体 |
