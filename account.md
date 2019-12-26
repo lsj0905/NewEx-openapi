@@ -49,7 +49,7 @@ GET /account/history
 ## Params
 | 参数名称 | 数据类型 | 是否必需 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| currency | string | true | 币种 |  |
+| currency | string | false | 币种 |  |
 | transact-types| string | false | 变动类型 | "all" |
 | start-time | long | false | 远点时间 |  |
 | end-time | long  | false | 近点时间 |  |
@@ -153,7 +153,7 @@ GET /query/deposit-withdraw
 ## Params
 | 参数名称 | 数据类型 | 是否必需 | 描述 | 取值范围 |
 |:-:|:-:|:-:|:-:|:-:|
-| currency | string | true | 币种 |  |
+| currency | string | false | 币种 |  |
 | type | string | true | 充值或提现 | deposit 或 withdraw |
 | from | string | false | 查询起始 ID |  |
 | size | string | false | 查询记录大小，默认100 | 1-500 |
