@@ -90,7 +90,7 @@ action的有效取值：
 签名前最后生成的字符串如下：
 ```
 GET\n
-api.huobi.pro\n
+api.ws.newex.io\n
 /ws/v2\n
 accessKey=0664b695-rfhfg2mkl3-abbf6c5d-49810&signatureMethod=HmacSHA256&signatureVersion=2.1&timestamp=1575537778295
 ```
