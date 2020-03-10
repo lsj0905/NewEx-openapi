@@ -6,25 +6,33 @@
 wss://api.ws.newex.io/
 
 ### 数据压缩
+
 WebSocket API 返回的所有数据都进行了 GZIP 压缩，需要 client 在收到数据之后解压。
 
 ### 心跳消息
+
 当用户的Websocket客户端连接到Websocket服务器后，服务器会定期（当前设为5秒）向其发送ping消息并包含一整数值如下：
 ```
 {"ping": 1492420473027}
 ```
+
 当用户的Websocket客户端接收到此心跳消息后，应返回pong消息并包含同一整数值：
+
 `当Websocket服务器连续两次发送了`ping`消息却没有收到任何一次`pong`消息返回后，服务器将主动断开与此客户端的连接。`
 
 ### 订阅主题
+
 成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题：
+
 ```
 {
   "sub": "market.btcusdt.kline.1min",
   "id": "id1"
 }
 ```
+
 成功订阅后，Websocket客户端将收到确认：
+
 ```
 {
   "id": "id1",
@@ -33,7 +41,9 @@ WebSocket API 返回的所有数据都进行了 GZIP 压缩，需要 client 在�
   "ts": 1489474081631
 }
 ```
+
 之后, 一旦所订阅的主题有更新，Websocket客户端将收到服务器推送的更新消息（push）：
+
 ```
 {
   "ch": "market.btcusdt.kline.1min",
@@ -52,7 +62,9 @@ WebSocket API 返回的所有数据都进行了 GZIP 压缩，需要 client 在�
 ```
 
 ### 取消订阅
+
 取消订阅的格式如下：
+
 ```
 {
   "unsub": "market.btcusdt.trade.detail", #topic to unsub
@@ -104,7 +116,7 @@ market.$symbol$.kline
 
 #### 数据更新字段列表
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | id | integer | unix时间，同时作为K线ID |
 | amount | string | 成交量 |
 | count | integer | 成交笔数 |
@@ -137,17 +149,28 @@ market.$symbol$.kline
 ## 市场深度MBP行情数据
 
 用户可订阅此频道以接收最新深度行情Market By Price (MBP) 的增量数据推送；
+
 建议下游数据处理方式：
+
 1） 订阅增量数据并开始缓存；
+
 2） 请求全量数据（同等档位数）并根据该全量消息的seqNum与缓存增量数据中的prevSeqNum对齐；
+
 3） 开始连续增量数据接收与计算，构建并持续更新MBP订单簿；
+
 4） 每条增量数据的prevSeqNum须与前一条增量数据的seqNum一致，否则意味着存在增量数据丢失，须重新获取全量数据并对齐；
+
 5） 如果收到增量数据包含新增price档位，须将该price档位插入MBP订单簿中适当位置；
+
 6） 如果收到增量数据包含已有price档位，但size不同，须替换MBP订单簿中该price档位的size；
+
 7） 如果收到增量数据某price档位的size为0值，须将该price档位从MBP订单簿中删除；
+
 8） 如果收到单条增量数据中包含两个及以上price档位的更新，这些price档位须在MBP订单簿中被同时更新。
 
+
 #### 主题订阅
+
 market.$symbol.mbp
 
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
@@ -175,7 +198,7 @@ market.$symbol.mbp
 #### 数据更新字段列表
 
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | seqNum | integer | 消息序列号 |
 | prevSeqNum | integer | 上一消息序列号 |
 | bids | object | 买盘，按price降序排列，["price","size"] |
@@ -204,6 +227,7 @@ market.$symbol.mbp
 当买一价、买一量、卖一价、卖一量，其中任一数据发生变化时，此主题推送逐笔更新。
 
 #### 主题订阅
+
 market.$symbol.bbo
 
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
@@ -231,7 +255,7 @@ market.$symbol.bbo
 #### 数据更新字段列表
 
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | symbol | string | 交易代码 |
 | quoteTime | integer | 盘口更新时间 |
 | bid | string | 买一价 |
@@ -263,6 +287,7 @@ market.$symbol.bbo
 此主题提供市场最新成交逐笔明细。
 
 #### 主题订阅
+
 market.$symbol.trade.detail
 
 | 参数 | 数据类型 | 是否必须 | 描述 | 取值范围 |
@@ -290,7 +315,7 @@ market.$symbol.trade.detail
 #### 数据更新字段列表
 
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | tradeId | string | 唯一成交ID |
 | amount | integer | 成交量 |
 | price | string | 成交价 |
@@ -354,7 +379,7 @@ market.$symbol.detail
 #### 数据更新字段列表
 
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | id | integer | unix时间，同时作为消息ID |
 | ts | integer | unix系统时间 |
 | count | integer | 成交笔数 |
