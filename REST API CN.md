@@ -18,4 +18,6 @@
 
 1. [Market](ws-market.md) 行情数据
 
-2. [Account & Order](ws-account.md) 资产及订单
+2. [资产及订单v1](ws-account.md)
+
+3. [资产及订单v2](ws-account-v2.md)
