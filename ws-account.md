@@ -1,4 +1,4 @@
-# websocket资产及订单
+# websocket资产及订单V1
 
 ## 简介
 
@@ -136,10 +136,7 @@ orders.list AND orders.detail: once every 5 seconds
 | Timestamp | string | true | 时间戳，您发出请求的时间（UTC时间）在查询请求中包含此值有助于防止第三方截取您的请求。 |
 | Signature | string | true | 签名, 计算得出的值，用于确保签名有效和未被篡改 |
 
-
-```
 参考 [签名认证](signature.md) 生成有效签名，签名计算中请求方法固定值为GET
-```
 
 
 
