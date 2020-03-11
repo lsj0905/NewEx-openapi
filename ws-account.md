@@ -3,7 +3,7 @@
 ## 简介
 
 ### 接入url
-wss://api.ws.newex.io/
+wss://api.ws.newex.io/v1
 
 ### 心跳消息
 当用户的Websocket客户端连接到Websocket服务器后，服务器会定期（当前设为20秒）向其发送ping消息并包含一整数值如下：
