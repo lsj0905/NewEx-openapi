@@ -35,6 +35,24 @@ action的有效取值：
 | push | 推送数据，服务端发送至客户端数据类型 |
 
 
+### 限频
+
+#### 数据请求（sub）限频规则
+
+限频规则基于API key而不是连接。当sub数量超出限值时，Websocket客户端将收到"too many request"错误码。具体规则如下：
+
+单个连接每秒最多50次sub和50次unsub。 单个连接sub总量限制100个，sub总量达到限额后不允许再sub，但每次unsub可以减少sub总量的计数。比如：30个sub后unsub 1个，此时sub总量count为29，还有71个sub总量可用。
+
+#### 数据请求（req）限频规则
+
+限频规则基于API key而不是连接。当请求频率超出限值时，Websocket客户端将收到"too many request"错误码。以下为各主题当前限频设定：
+
+accounts.list: once every 2 seconds
+
+orders.list AND orders.detail: once every 5 seconds
+
+
+
 ### 鉴权
 
 鉴权请求格式如下：
@@ -244,7 +262,7 @@ orders.$symbol.update
 #### 数据更新字段列表
 
 | 参数 | 数据类型 | 描述 |
-|:-:|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 | order-id | integer | 订单编号 |
 | symbol | string | 交易代码 |
 | order-state | string | 订单状态, 有效取值: submitted, partial-filled, filled, canceled, partial-canceled |
